@@ -83,6 +83,20 @@ bool isValidLocationType(const char* type) {
     return false;
 }
 
+// void createSurvivor(Survivor &survivor) {
+//     cout << "========= SURVIVOR STATISTIC =========" << endl;
+//     cout << "Nama: " << survivor.name << endl;
+//     cout << "Level: " << survivor.level << endl;
+//     cout << "Pengalaman: " << survivor.exp << " / 100" << endl;
+//     cout << "Kesehatan: " << survivor.health << " / 100" << endl;
+//     cout << "Kelaparan: " << survivor.hunger << " / 100" << endl;
+//     cout << "Kehausan: " << survivor.thirst << " / 100" << endl;
+//     cout << "Stamina: " << survivor.stamina << " / 100" << endl;
+//     cout << "Persediaan: " << survivor.supplies << endl;
+//     cout << "Zombi Tewas: " << survivor.zombieKills << endl;
+//     cout << "Hari Bertahan: " << survivor.daysSurvived << endl;
+// }
+
 void createSurvivor(Survivor &survivor) {
     survivor.level = 1;
     survivor.exp = 0;
@@ -93,21 +107,7 @@ void createSurvivor(Survivor &survivor) {
     survivor.supplies = 0;
     survivor.zombieKills = 0;
     survivor.daysSurvived = 1;
-    
-    cout << "========= SURVIVOR STATISTIC =========" << endl;
-    cout << "Nama: " << survivor.name << endl;
-    cout << "Level: " << survivor.level << endl;
-    cout << "Pengalaman: " << survivor.exp << " / 100" << endl;
-    cout << "Kesehatan: " << survivor.health << " / 100" << endl;
-    cout << "Kelaparan: " << survivor.hunger << " / 100" << endl;
-    cout << "Kehausan: " << survivor.thirst << " / 100" << endl;
-    cout << "Stamina: " << survivor.stamina << " / 100" << endl;
-    cout << "Persediaan: " << survivor.supplies << endl;
-    cout << "Zombi Tewas: " << survivor.zombieKills << endl;
-    cout << "Hari Bertahan: " << survivor.daysSurvived << endl;
-}
 
-void displayStats(const Survivor &survivor) {
     cout << "========= SURVIVOR STATISTIC =========" << endl;
     cout << "Nama: " << survivor.name << endl;
     cout << "Level: " << survivor.level << endl;
@@ -471,11 +471,11 @@ int main() {
     WelcomeHome();
     int choice;
 
-    do {
+    while (choice != 8) {
         choice = MainMenu();
         switch (choice) {
             case 1:
-                displayStats(survivor);
+                createSurvivor(survivor);
                 cout << "Rating Kelangsungan Hidup: " << calculateSurvivalRating(survivor) << endl;
                 system("pause");
                 system("cls");
@@ -591,7 +591,7 @@ int main() {
                 system("pause");
                 system("cls");
         }
-    } while (choice != 8);
+    }
 
     return 0;
 }
